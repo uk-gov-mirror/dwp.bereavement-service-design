@@ -5,11 +5,11 @@ module.exports = (source, target) => (req, res, next) => {
       const redirectOrigin = req.session.data['cya-origin'];
       delete req.session.data['cya-origin'];
       delete req.session.data['cya-destination'];
-      res.redirect(`${req.version}${redirectOrigin}`);
+      res.redirect(url);
     } else {
-      res.redirect(`${req.version}check-answers-full-list`);
+      res.redirect(url);
     }
   } else {
-    res.redirect(`${req.version}${target}`);
+    res.redirect(url);
   }
 };

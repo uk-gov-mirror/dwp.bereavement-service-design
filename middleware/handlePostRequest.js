@@ -96,7 +96,7 @@ module.exports = (source, config, logic) => (req, res, next) => {
   handleEmptyPost(source, req);
   const isValid = handleValidation(req, res, next, source, config);
   if (!isValid) {
-    return res.redirect(`${req.version}${source}`);
+    return res.redirect(url);
   }
   const nextPage = handleRouting(config, req) ? handleRouting(config, req) : config.next;
   routeToNext(source, nextPage)(req, res, next);
